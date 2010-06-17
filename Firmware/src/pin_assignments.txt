@@ -1,0 +1,13 @@
+ Pin assignments for the WheyStation:
+
+ PC0  -  Analog input    -  Output from instrumentation amp
+ PC1  -  Digital output  -  Debug LED (lit high)
+
+ ... XBEE pins ...
+
+ PD0  -  RXD             -  Serial debugging comms
+ PD1  -  TXD             -  Serial debugging comms
+
+ PD2  -	 Digital input	 -  CdS light sensor
+
+

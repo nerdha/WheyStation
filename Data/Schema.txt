@@ -1,0 +1,10 @@
+We're doing this in MongoDB, so the schema description is going to be
+textual.  Oh boy!
+
+DB name: "milk"
+
+collection: "raw"
+keys: "time","weight","temperature"
+
+collection: "session"
+keys: "time","duration","start"
