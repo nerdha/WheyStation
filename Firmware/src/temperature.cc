@@ -1,15 +1,9 @@
 #include "temperature.hh"
+#include "adc.hh"
 
 #include <avr/io.h>
 
-#define VREF_INTERNAL ( _BV(REFS1) | _BV(REFS0) )
-#define VREF_AVCC _BV(REFS0)
-
-#define VREF VREF_INTERNAL
-
-// Select the ADC prescaler.  @8MHz, we use a
-// prescaler of clk/128.
-#define ADC_PRESCALER ( _BV(ADPS2) | _BV(ADPS1) | _BV(ADPS0) )
+#define TEMPERATURE_CHANNEL 8
 
 // Initialize temperature measuring
 void initTempurature() {
@@ -27,12 +21,6 @@ int rawToCelsius(int raw) {
 
 // Return the approximate temperature in C
 int measureTemperature() {
-  // Check that there's no sampling in progress (omitted)
-  // Select channel in ADMUX.
-  ADMUX = VREF | _BV(MUX3);
-  // Start conversion: write 1 to ADSC.
-  ADCSRA = _BV(ADEN) | _BV(ADSC) | ADC_PRESCALER;
-  loop_until_bit_is_clear(ADCSRA,ADSC);
-  int raw = ADCW;
+  int raw = analogRead(TEMPERATURE_CHANNEL);
   return rawToCelsius(raw);
 }
