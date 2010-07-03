@@ -1,0 +1,10 @@
+WheyStation end XBee configuration
+----------------------------------
+
++++
+ATMY1
+ATDL2
+
++++
+ATMY2
+ATDL1
