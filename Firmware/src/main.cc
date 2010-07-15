@@ -38,6 +38,8 @@ int main( void )
     char buffer[30];
     sprintf(buffer,"Weight %d.\r\n",(int)weight);
     sendDebugMsg(buffer);
+    sprintf(buffer,"Calibration %x.\r\n",(int)OSCCAL);
+    sendDebugMsg(buffer);
     int temperature = measureTemperature();
     sprintf(buffer,"Temp %d.\r\n",temperature);
     sendDebugMsg(buffer);
