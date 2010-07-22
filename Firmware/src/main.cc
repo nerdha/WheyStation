@@ -11,6 +11,7 @@
 #include <avr/sleep.h>
 #include <util/delay.h>
 #include <stdio.h>
+#include "xbee.hh"
 
 // General outline of operation:
 // * Send reset message.
@@ -26,8 +27,9 @@ int main( void )
   initWeigh();
   initTempurature();
   initLight();
-  
-  sendDebugMsg("good morning.  milk?\r\n");
+  initXBee();
+
+  send("good morning.  milk?\r\n");
   while(1) {
     if (!isLight()) {
       setDebugLED(false);
@@ -37,12 +39,12 @@ int main( void )
     float weight = weigh();
     char buffer[30];
     sprintf(buffer,"Weight %d.\r\n",(int)weight);
-    sendDebugMsg(buffer);
+    send(buffer);
     sprintf(buffer,"Calibration %x.\r\n",(int)OSCCAL);
-    sendDebugMsg(buffer);
+    send(buffer);
     int temperature = measureTemperature();
     sprintf(buffer,"Temp %d.\r\n",temperature);
-    sendDebugMsg(buffer);
+    send(buffer);
     sleep_1s();
   }
   return 0;

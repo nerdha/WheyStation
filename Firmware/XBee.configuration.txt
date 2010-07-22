@@ -1,10 +1,21 @@
 WheyStation end XBee configuration
 ----------------------------------
 
-+++
-ATMY1
-ATDL2
+Listening post:
+---------------
 
-+++
-ATMY2
-ATDL1
++++   : OK\n
+ATMY2 : OK\n
+ATDL1 : OK\n
+
+WheyStation:
+------------
+
++++   : OK\n
+ATPL2 : OK\n  # Set power level to -4db
+ATMY1 : OK\n  # Set my address to 2
+ATDL2 : OK\n  # Set destination address to 1
+ATSM1 : OK\n  # Set sleep mode 1
+ATCN  : # end communication
+Pin 9: sleep request ()
+Pin 13: module status (hook up to LED)
