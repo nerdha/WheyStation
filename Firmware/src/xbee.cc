@@ -23,17 +23,17 @@ void initXBee() {
   _delay_ms(1100);
   send("+++");
   _delay_ms(1100);
-  //send("ATPL2\n");
-  //_delay_ms(400);
-  //send("ATMY1\n");
-  //_delay_ms(400);
-  //send("ATDL2\n");
-  //_delay_ms(400);
-  //send("ATSM1\n");
-  //_delay_ms(400);
-  send("ATCN\n");
-  _delay_ms(100);
-  //sleep(true);
+  send("ATPL2\r");
+  _delay_ms(30);
+  send("ATMY1\r");
+  _delay_ms(30);
+  send("ATDL2\r");
+  _delay_ms(30);
+  send("ATSM1\r");
+  _delay_ms(30);
+  send("ATCN\r");
+  _delay_ms(30);
+  sleep(true);
 }
 
 bool isSleeping() {
